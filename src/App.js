@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Tmdb from './Tmdb';
+import db from './db';
 import MovieRow from './components/MovieRow';
-import './App.css';
+import './style.css';
 import FeaturedMovie from './components/FeaturedMovie';
 import Header from './components/Header';
 
@@ -12,8 +12,8 @@ export default () => {
   const [blackHeader, setBlackHeader] = useState(false);
   useEffect(() => {
     const loadAll = async () => {
-      // pegando a lista total
-      let list = await Tmdb.getHomeList();
+      // Pegando a lista total
+      let list = await db.getHomeList();
       console.log(list);
       setMovieList(list);
 
@@ -21,7 +21,7 @@ export default () => {
       let originals = list.filter(i => i.slug === 'originals');
       let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1));
       let chosen = originals[0].items.results[randomChosen];
-      let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
+      let chosenInfo = await db.getMovieInfo(chosen.id, 'tv');
       setFeaturedData(chosenInfo);
 
       console.log(chosenInfo);

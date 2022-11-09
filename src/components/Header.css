@@ -12,6 +12,7 @@ header {
     background: transparent;
     transition: all ease 0.5s;
 }
+
 header.black {
     background-color: #141414;
 }
@@ -22,16 +23,20 @@ header.black {
     border-color: transparent;
     color: #fff
 }
+
 .header--logo {
     height: 30px;
 }
+
 .header--logo img {
     height: 25px;
 }
+
 .header--user img {
     height: 100%;
     border-radius: 3px;
 }
+
 .header--user {
     height: 35px;
 }
